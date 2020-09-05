@@ -1,0 +1,8 @@
+<h1>CHAT ROOM</h1>
+<input type="text" id="chat-input">
+<button id="button">送信</button>
+<div class="messages" id="messages">
+  <% @messages.each do |message| %>
+    <%= render 'layouts/message.html.erb', message: message%>
+  <% end %>
+</div>
