@@ -10,10 +10,14 @@ const appRoom = consumer.subscriptions.create("RoomChannel", {
     // Called when the subscription has been terminated by the server
   },
 
-  received(data) {
-    console.log(data['message']);
-    const messageBox = document.getElementById(messages);
-    messages.insertAdjacentHTML('afterbegin',data['message']);
+  received(template) {
+    console.log(template);
+    console.log(typeof template);
+    const timeline = document.getElementById('timeline');
+    timeline.innerHTML += template;
+
+    const timelineHight = $('#timeline').innerHeight();
+    $('body,html').animate({scrollTop: timelineHight},400);
     // Called when there's incoming data on the websocket for this channel
   },
 

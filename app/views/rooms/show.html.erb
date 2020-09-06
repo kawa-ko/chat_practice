@@ -1,8 +1,13 @@
-<h1>CHAT ROOM</h1>
-<input type="text" id="chat-input">
-<button id="button">送信</button>
-<div class="messages" id="messages">
-  <% @messages.each do |message| %>
-    <%= render 'layouts/message.html.erb', message: message%>
-  <% end %>
+<div class="messages clearfix" id="messages">
+  <div class="timeline" id="timeline">
+    <% @messages.each do |message| %>
+      <%= render 'layouts/message.html.erb', message: message%>
+    <% end %>
+  </div>
+  <div class="input-form clearfix">
+  　<span class="textarea-up fas fa-chevron-up"></span>
+    <textarea class="chat-input" id="chat-input"></textarea>
+    <button class="chat-btn" id="button">送信</button>
+  </div>
 </div>
+
